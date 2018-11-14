@@ -1,34 +1,24 @@
 import React, {Component} from 'react';
 import { View, StyleSheet } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
 
-import Home from './src/pages/Home';
+import style from './style'
 
-type Props = {};
-export default class App extends Component<Props> {
+import Login from './src/pages/Login/Login';
+import Home from './src/pages/Home/Home';
+
+const Gojek = createStackNavigator({
+  Login,
+  Home,
+})
+
+
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Home />
-      </View>
+      <Gojek />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+const styles = StyleSheet.create(style);
